@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery AJAX</title>
+  <link rel="stylesheet" href="../public/css/bulma.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">AJAX requests using jQuery</h1>
+    <div class="field">
+      <label class="label">First Name</label>
+      <input type="text" class="input" id="first" placeholder="first name">
+    </div>
+    <div class="field">
+      <label class="label">Last Name</label>
+      <input type="text" class="input" id="second" placeholder="last name">
+    </div>
+    
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link" onclick="submit()">Submit</button>
+      </div>
+      <div class="control">
+        <button class="button is-link">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    const submit = () => {
+      const formData = {
+        first: $('#first').val(),
+        last: $('#last').val()
+      }
+      $.ajax({
+        method: 'POST',
+        contentType: 'application/json',
+        url: window.location + '/api/customsers/save',
+        data: JSON.stringify(formData),
+        dataType: 'JSON',
+        success: (customer) => {
+          alert('Customer added')
+        },  
+        error: (err) => {
+          console.log(`Error: ${err}`)
+        }
+      })
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<style>
+  table,
+  th,
+  td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+</style>
+
+<body>
+
+  <h2>The XMLHttpRequest Object</h2>
+
+  <button type="button" onclick="loadDoc()">Display CD collection</button>
+  <br><br>
+  <table id="demo"></table>
+
+  <script>
+    function myFunction(xml) {
+      var i;
+      var xmlDoc = xml.responseXML;
+      var table = "<tr><th>Artist</th><th>Title</th></tr>";
+      var x = xmlDoc.getElementsByTagName("CD");
+      for (i = 0; i < x.length; i++) {
+        table += "<tr><td>" +
+          x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+          "</td></tr>";
+      }
+      createTheTable(table);
+    }
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();                         // create a new XMLHTTPRequest
+      xhttp.onreadystatechange = function () {                  // check to see when the state changes
+        console.log(`Current state: ${this.readyState} | ${this.status}`);
+        if (this.readyState == 4 && this.status == 200) {       // if the state is 4 and the status is 200 (no errors)
+          myFunction(this);                                     // call the my function and pass the 
+        }
+      };
+      xhttp.open("GET", "cd_catalog.xml", true);                // initialize the request that is created
+      xhttp.send(); 
+    }
+    function createTheTable(table) {
+      document.getElementById("demo").innerHTML = table;
+    }
+  </script>
+</body>
+
+</html>

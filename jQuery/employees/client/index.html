@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery Client Side</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Submit Employee Information -->
+  <!-- <label for="name">Name</label>
+  <input type="text" name="name" id="name">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email"> -->
+  <button onclick="processSubmit()">Submit</button>
+
+  <script>
+  const processSubmit = () => {
+    const name = $('#name').val();
+    const email = $('#email').val();
+
+    const parcel = {
+      name: name,
+      email: email
+    };
+    const request = $.ajax({
+      url: 'localhost:8080/employees', // supposed to connect to node backend,
+      data: parcel,
+      method: 'GET',
+      xhrFields: {
+        withCredentials: true
+      }
+    });
+
+    request.done(returnedData => { // supposed to be coming from node...
+      console.log({returnedData: returnedData})
+    });
+  }
+  </script>  
+</body>
+
+</html>
