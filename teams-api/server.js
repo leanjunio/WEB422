@@ -5,12 +5,12 @@
  * and other environment variables outside of our code.
  */
 
-const dotenv = require('dotenv');
-const result = dotenv.config();
+// const dotenv = require('dotenv');
+// const result = dotenv.config();
 
-if (result.error) {
-    throw result.error
-}  
+// if (result.error) {
+//     throw result.error
+// }  
 
 const mongoDBConnectionString = process.env.MONGODB_CONNECTION_STRING;
 const HTTP_PORT = process.env.PORT || 8081;

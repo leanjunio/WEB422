@@ -1,0 +1,9 @@
+div.images-div {
+  /* border: 2px black solid; */
+  margin: 40px auto;
+}
+img {
+  margin: 0 auto;
+  height: 200px;
+  margin-bottom: 5px;
+}
