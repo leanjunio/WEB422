@@ -4,14 +4,13 @@ $(document).ready(() => {
 })
 
 const loadImages = () => {
-  $('#img-1').attr('src', '../public/images/image_1.jpg')
-  $('#img-2').attr('src', '../public/images/image_2.jpg')
-  $('#img-3').attr('src', '../public/images/image_3.jpg')
-  $('#img-4').attr('src', '../public/images/image_4.jpg')
+  $('#img-1').attr('src', '../images/image_1.jpg')
+  $('#img-2').attr('src', '../images/image_2.jpg')
+  $('#img-3').attr('src', '../images/image_3.jpg')
+  $('#img-4').attr('src', '../images/image_4.jpg')
 }
 
 const loadDataFromAPI = () => {
-  let htmlString;
   $.ajax({
     type: 'GET',
     url: '../dataset.xml',
@@ -44,5 +43,4 @@ const loadDataFromAPI = () => {
       $('#data-div').append(tableElement)
     }
   });
-  // $('#data-div').html(htmlString);
 }
