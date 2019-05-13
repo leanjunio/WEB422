@@ -1,9 +1,9 @@
-div.images-div {
-  /* border: 2px black solid; */
+body {
   margin: 40px auto;
 }
+
 img {
   margin: 0 auto;
-  height: 200px;
+  height: 100px;
   margin-bottom: 5px;
 }
