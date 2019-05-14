@@ -1,7 +1,11 @@
 $(document).ready(() => {
   loadImages()
-  loadDataFromAPI()
 })
+
+const fetch = () => {
+  loadDataFromAPI()
+  $('#fetch').remove()
+}
 
 const loadImages = () => {
   $('#img-1').attr('src', '../images/image_1.jpg')
