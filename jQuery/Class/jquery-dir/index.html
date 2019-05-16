@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markup</title>
+</head>
+<body>
+  <h1>I'm the biggest but if you click on me, I will vanish!</h1>
+  <h2>mmmmm...Just Click me away!</h2>
+  <h3>Aha.....Click me away too!</h3>
+  <script src="jquery-3.4.1.min.js"></script>
+  <script>
+  $(document).ready(() => {
+    $('h1').on('click', () => $('h1').remove())
+    $('h2').on('click', () => $('h2').remove())
+    $('h3').on('click', () => $('h3').remove())
+  })
+  </script>
+</body>
+</html>
