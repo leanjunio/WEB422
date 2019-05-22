@@ -1,0 +1,64 @@
+{
+  "record": [
+    {
+      "id": "1",
+      "full_name": "Loria Stamper",
+      "medication": "Ceftriaxone Sodium",
+      "email": "lstamper0@redcross.org"
+    },
+    {
+      "id": "2",
+      "full_name": "Korie Shorbrook",
+      "medication": "Nedocromil Sodium",
+      "email": "kshorbrook1@slashdot.org"
+    },
+    {
+      "id": "3",
+      "full_name": "Boote Harm",
+      "medication": "Bupropion hydrochloride",
+      "email": "bharm2@howstuffworks.com"
+    },
+    {
+      "id": "4",
+      "full_name": "Morgana Busst",
+      "medication": "Ampicillin and Sulbactam",
+      "email": "mbusst3@qq.com"
+    },
+    {
+      "id": "5",
+      "full_name": "Whittaker Keast",
+      "medication": "Dermablend Professional SkinPerfector Redness Reducing Primer Sunscreen",
+      "email": "wkeast4@smh.com.au"
+    },
+    {
+      "id": "6",
+      "full_name": "Mario Whinney",
+      "medication": "Red Cross Toothache",
+      "email": "mwhinney5@dedecms.com"
+    },
+    {
+      "id": "7",
+      "full_name": "Averill McGloughlin",
+      "medication": "Gabapentin",
+      "email": "amcgloughlin6@businesswire.com"
+    },
+    {
+      "id": "8",
+      "full_name": "Dulcinea O' Clovan",
+      "medication": "SHISEIDO SHEER AND PERFECT FOUNDATION",
+      "email": "do7@vk.com"
+    },
+    {
+      "id": "9",
+      "full_name": "Estel Thwaite",
+      "medication": "NAPROXEN",
+      "email": "ethwaite8@stumbleupon.com"
+    },
+    {
+      "id": "10",
+      "full_name": "Gwyneth Mabson",
+      "medication": "Dextrose",
+      "email": "gmabson9@trellian.com"
+    }
+  ]
+}

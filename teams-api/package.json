@@ -17,6 +17,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.5.5",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.0",
+    "pretty-print-json": "^0.1.0"
   }
 }

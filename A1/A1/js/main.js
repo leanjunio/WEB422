@@ -12,19 +12,23 @@ sites) or distributed to other students.
 $(document).ready(() => {
   console.log(`jQuery working`)
 
+  const data = { active: true, codes: [48348, 28923, 39080], city: 'London' };
   // Teams clicked
   $('#teams-menu').on('click', (e) => {
     e.preventDefault()
     $('#data').empty()
     $('#data').append(`<h3>Teams</h3>`)
-
+    
     $.ajax({
       type: 'GET',
       url: 'https://teams-api-lean.herokuapp.com/teams',
       dataType: 'JSON',
       success: (response) => {
         let data = JSON.stringify(response)
-        $('#data').append(data)
+        // $('#data').append(data)
+        console.log(typeof data)
+        $('#data').html(prettyPrintJson.toHtml(JSON.parse(data)));
+        console.log(typeof response)
       }
     });
   })
