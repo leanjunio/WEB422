@@ -15,6 +15,11 @@ const loadImages = () => {
 }
 
 const loadDataFromAPI = () => {
+  // let json = 'data.json';
+  // $.getJSON(json, (data) => {
+  
+  // })
+  // console.log(`reached`)
   $.ajax({
     type: 'GET',
     url: 'data.json',
