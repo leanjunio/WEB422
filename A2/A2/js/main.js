@@ -36,11 +36,32 @@ let initializeEmployeesModel = () => {
  * - Sets the contents of *modal-body* to the passed *message* value
  * - Show the genericModal using the id (genericModal)
  * 
- * @param {string} title 
- * @param {string} message 
+ * @param {string} title    The title that will be set to the <h4></h4> within the modal
+ * @param {string} message  The message that will appear within the modal
  */
 let showGenericModal = (title, message) => {
   $('.modal-title').val(title);
   $('.modal-body').val(message);
   // TODO: Show the modal
+}
+
+/**
+ * Refreshes the table to contain the updates given.
+ * 
+ * The function does the following:
+ * - Defines a lodash template using 'escape' and 'evaluate' delimiters to produce the following html structure for **every employee** in the local employees array:
+ *  ```html
+ *  <div class="row body-row" data-id="[the employee's _id]">
+ *   <div class="col-xs-4 body-column">[the employee's first name]</div>
+ *   <div class="col-xs-4 body-column">[the employee's last name]</div>
+ *   <div class="col-xs-4 body-column">[the employee's position name]</div>
+ *  </div>
+ *  ```
+ * - Invoke the template function and provide the 'employees' array as part of the parameter
+ * - Add the results from invoking the template function as a child of the 'employees-table' element
+ * - ***NOTE***: It is vital that the "employees-table" is cleared of any existing "body-row" elements, before adding any new ones
+ * @param {array} employees 
+ */
+let refreshEmployeeRows = (employees) => {
+
 }
