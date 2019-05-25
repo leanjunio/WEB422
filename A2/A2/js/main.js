@@ -63,5 +63,14 @@ let showGenericModal = (title, message) => {
  * @param {array} employees 
  */
 let refreshEmployeeRows = (employees) => {
-
+  let employeeTemplates = _.template(`<%_.forEach(employees, (employee) => { %>
+    <div class="row body-row" data-id="<%- employee.id %>">
+    <div class="col-xs-4 body-column"><%- employee.first %></div>
+    <div class="col-xs-4 body-column"><%- employee.last %></div>
+    <div class="col-xs-4 body-column"><%- employee.position %></div>
+    </div>}
+  `);
+  compiled({ 'employees': employeesModel });
+  $('#employees-table').empty();  // clear the table
+  console.log(employeeTemplates)  // TODO: Append to the table after checking format
 }
