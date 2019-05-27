@@ -12,7 +12,7 @@ $(document).ready(() => {
     refreshEmployeeRows();
   });
 });
-
+  
 /**
  * Populates the "employeesModel" array.
  * 
@@ -72,7 +72,6 @@ let showGenericModal = (title, message) => {
  * @param {array} employees 
  */
 let refreshEmployeeRows = (employees) => {
-  // let compiled = _.template()
   let compiled = _.template(`<% _.forEach(employees, (employee) => { 
     %><div class="row body-row" data-id="<%- employee.id %>">
     <div class="col-xs-4 body-column"><%- employee.first %></div>
@@ -82,7 +81,7 @@ let refreshEmployeeRows = (employees) => {
   `);
   compiled({ 'employees': employees });
   $('#employees-table').empty();  // clear the table
-  console.log(compiled)  // TODO: Append to the table after checking format
+  //console.log(compiled)  // TODO: Append to the table after checking format
 }
 
 /**
