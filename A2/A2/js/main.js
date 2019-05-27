@@ -1,7 +1,16 @@
 let employeesModel = []
 
+/**
+ * Invoke the **initializeEmployeesModel()** to fetch data and populate the table
+ */
 $(document).ready(() => {
-  
+  initializeEmployeesModel();
+  let employeeSearchBar = $('#employee-search');
+  let employeeSearchBarVal = $('#employee-search').val();
+  employeeSearchBar.keyup(() => {
+    getFilteredEmployeesModel(employeeSearchBarVal);
+    refreshEmployeeRows();
+  });
 });
 
 /**
@@ -63,14 +72,41 @@ let showGenericModal = (title, message) => {
  * @param {array} employees 
  */
 let refreshEmployeeRows = (employees) => {
-  let employeeTemplates = _.template(`<%_.forEach(employees, (employee) => { %>
-    <div class="row body-row" data-id="<%- employee.id %>">
+  // let compiled = _.template()
+  let compiled = _.template(`<% _.forEach(employees, (employee) => { 
+    %><div class="row body-row" data-id="<%- employee.id %>">
     <div class="col-xs-4 body-column"><%- employee.first %></div>
     <div class="col-xs-4 body-column"><%- employee.last %></div>
     <div class="col-xs-4 body-column"><%- employee.position %></div>
-    </div>}
+    </div><% } %>
   `);
-  compiled({ 'employees': employeesModel });
+  compiled({ 'employees': employees });
   $('#employees-table').empty();  // clear the table
-  console.log(employeeTemplates)  // TODO: Append to the table after checking format
+  console.log(compiled)  // TODO: Append to the table after checking format
+}
+
+/**
+ * Returns a filtered version of the global employeesModel array
+ * 
+ * The filtered version of the "employeesModel" array using the following rule:
+ * - Any employee object in the "employeesModel" array whose **.FirstName**, **.LastName**, or **.Position.PositionName** properties contain the local "filterString"
+ *  (provided to the function) will be added to the filtered array. This will allow the user to filter all 3 columns of the table with a single string.
+ * - NOTE: This operation is not case sensitive
+ * - Hint: The Lodash **_.filter()** method is perfect for this type of operation
+ * 
+ * @param {string} filterString The criteria to filter the employees array with
+ * @returns {array} A filtered version of the employeesModel array
+ */
+let getFilteredEmployeesModel = (filterString) => {
+  console.log(filterString);
+  // TODO: See what sort of strings can come from filterString... 
+}
+
+/**
+ * Returns a copy of the found employee that has a matching id
+ * 
+ * @param {string} id The id pertaining to one employee
+ */
+let getEmployeeModelById = (id) => {
+
 }
