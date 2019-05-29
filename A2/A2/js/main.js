@@ -9,7 +9,7 @@ $(document).ready(() => {
   let employeeSearchBarVal = $('#employee-search').val();
   employeeSearchBar.keyup(() => {
     getFilteredEmployeesModel(employeeSearchBarVal);
-    refreshEmployeeRows();
+    refreshEmployeeRows(employeesModel);
   });
 });
   
@@ -25,6 +25,7 @@ $(document).ready(() => {
  * - Invoke the **showGenericModal** function with *Error* as the *<title></title>* and an appropriate error message as the message
  */
 let initializeEmployeesModel = () => {
+  console.log('initializeEmployeesModel()...')
   $.ajax({
     type: 'get',
     url: 'https://teams-api-lean.herokuapp.com/employees',
@@ -72,6 +73,7 @@ let showGenericModal = (title, message) => {
  * @param {array} employees 
  */
 let refreshEmployeeRows = (employees) => {
+  console.log(`refreshEmployeeRows()...`)
   let compiled = _.template(`<% _.forEach(employees, (employee) => { 
     %><div class="row body-row" data-id="<%- employee.id %>">
     <div class="col-xs-4 body-column"><%- employee.first %></div>
@@ -79,9 +81,8 @@ let refreshEmployeeRows = (employees) => {
     <div class="col-xs-4 body-column"><%- employee.position %></div>
     </div><% }) %>
   `);
-  compiled({ 'employees': employees });
   $('#employees-table').empty();  // clear the table
-  //console.log(compiled)  // TODO: Append to the table after checking format
+  $('#employees-table').append(compiled);
 }
 
 /**
