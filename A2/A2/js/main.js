@@ -77,7 +77,7 @@ let refreshEmployeeRows = (employees) => {
     <div class="col-xs-4 body-column"><%- employee.first %></div>
     <div class="col-xs-4 body-column"><%- employee.last %></div>
     <div class="col-xs-4 body-column"><%- employee.position %></div>
-    </div><% } %>
+    </div><% }) %>
   `);
   compiled({ 'employees': employees });
   $('#employees-table').empty();  // clear the table
