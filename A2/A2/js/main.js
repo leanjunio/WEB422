@@ -11,6 +11,12 @@ $(document).ready(() => {
     let filteredEmployees = getFilteredEmployeesModel(employeeSearchBarVal);
     refreshEmployeeRows(filteredEmployees);
   });
+  let employee = $('.body-row');
+  employee.click((e) => { 
+    console.log(`clicked`)
+    e.preventDefault();
+    getEmployeeModelById(e.attr('data-id'));
+  });
 });
   
 /**
@@ -123,5 +129,5 @@ let getFilteredEmployeesModel = (filterString) => {
  * @param {string} id The id pertaining to one employee
  */
 let getEmployeeModelById = (id) => {
-
+  return getFilteredEmployeesModel(id);
 }
