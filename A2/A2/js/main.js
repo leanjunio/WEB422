@@ -6,10 +6,10 @@ let employeesModel = []
 $(document).ready(() => {
   initializeEmployeesModel();
   let employeeSearchBar = $('#employee-search');
-  let employeeSearchBarVal = $('#employee-search').val();
   employeeSearchBar.keyup(() => {
-    getFilteredEmployeesModel(employeeSearchBarVal);
-    refreshEmployeeRows(employeesModel);
+    let employeeSearchBarVal = $('#employee-search').val();
+    let filteredEmployees = getFilteredEmployeesModel(employeeSearchBarVal);
+    refreshEmployeeRows(filteredEmployees);
   });
 });
   
@@ -73,6 +73,8 @@ let showGenericModal = (title, message) => {
  * @param {array} employees 
  */
 let refreshEmployeeRows = (employees) => {
+  console.log(`refreshEmployeeRows()...`)
+  console.log(employees.length)
   $('#employees-table').empty();  // clear the table
   let compiled = _.template(
     `
@@ -93,7 +95,7 @@ let refreshEmployeeRows = (employees) => {
 }
 
 /**
- * Returns a filtered version of the global employeesModel array
+ * (Emulate two way data binding) Returns a filtered version of the global employeesModel array
  * 
  * The filtered version of the "employeesModel" array using the following rule:
  * - Any employee object in the "employeesModel" array whose **.FirstName**, **.LastName**, or **.Position.PositionName** properties contain the local "filterString"
@@ -105,8 +107,10 @@ let refreshEmployeeRows = (employees) => {
  * @returns {array} A filtered version of the employeesModel array
  */
 let getFilteredEmployeesModel = (filterString) => {
-  console.log(filterString);
-  // TODO: See what sort of strings can come from filterString... 
+  let filteredArr = employeesModel.filter(employee => {
+    return employee.FirstName.includes(filterString) || employee.LastName.includes(filterString) || employee.Position.PositionName.includes(filterString)
+  });
+  return filteredArr;
 }
 
 /**
