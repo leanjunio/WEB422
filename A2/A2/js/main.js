@@ -74,20 +74,31 @@ let showGenericModal = (title, message) => {
  */
 let refreshEmployeeRows = (employees) => {
   $('#employees-table').empty();  // clear the table
-  var compiled = _.template('<% _.forEach(employees, function(employee) { %><li><%- employee.FirstName %></li><% }); %>');
+  let compiled = _.template(
+    `
+    <%
+      _.forEach(employees, (employee) => {
+        %>
+          <div class="row body-row" data-id="<%= employee._id %>">
+            <div class="col-xs-4 body-column"><%= employee.FirstName %></div>
+            <div class="col-xs-4 body-column"><%= employee.LastName %></div>
+            <div class="col-xs-4 body-column"><%= employee.Position.PositionName %></div>
+          </div>
+        <%
+      })
+    %>
+    `
+  )
+  // var compiled = _.template('<% _.forEach(employees, function(employee) { %><li><%- employee.FirstName %></li><% }); %>');
   // $.each(employees, (index, e) => {
   //   let div = 
   //   `
-  //     <div class="row body-row" data-id="<%= eeeeeeeeeeeeeeeeeeeeeeeee._id %>">
-  //     <div class="col-xs-4 body-column"><%= e.FirstName %></div>
-  //     <div class="col-xs-4 body-column"><%= e.LastName %></div>
-  //     <div class="col-xs-4 body-column"><%= e.Position.PositionName %></div>
-  //     </div>
+      
   //   `
   // compiled({ 'employees': employees });
-  console.log(compiled({ 'employees': employees }));
+  // console.log(compiled({ 'employees': employees }));
   // let compiled = _.template(div);
-  // $('#employees-table').append(compiled);
+  $('#employees-table').append(compiled({ 'employees': employees }));
   // })
   
 }
