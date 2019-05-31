@@ -32,7 +32,7 @@ let initializeEmployeesModel = () => {
     dataType: 'json',
   })
   .done(data => {
-    data.forEach(element => employeesModel.push(element));
+    employeesModel = $.makeArray(data);
     refreshEmployeeRows(employeesModel);
   })
   .fail(err => showGenericModal('Error', err));
@@ -73,16 +73,23 @@ let showGenericModal = (title, message) => {
  * @param {array} employees 
  */
 let refreshEmployeeRows = (employees) => {
-  console.log(`refreshEmployeeRows()...`)
-  let compiled = _.template(`<% _.forEach(employees, (employee) => { 
-    %><div class="row body-row" data-id="<%- employee.id %>">
-    <div class="col-xs-4 body-column"><%- employee.first %></div>
-    <div class="col-xs-4 body-column"><%- employee.last %></div>
-    <div class="col-xs-4 body-column"><%- employee.position %></div>
-    </div><% }) %>
-  `);
   $('#employees-table').empty();  // clear the table
-  $('#employees-table').append(compiled);
+  var compiled = _.template('<% _.forEach(employees, function(employee) { %><li><%- employee.FirstName %></li><% }); %>');
+  // $.each(employees, (index, e) => {
+  //   let div = 
+  //   `
+  //     <div class="row body-row" data-id="<%= eeeeeeeeeeeeeeeeeeeeeeeee._id %>">
+  //     <div class="col-xs-4 body-column"><%= e.FirstName %></div>
+  //     <div class="col-xs-4 body-column"><%= e.LastName %></div>
+  //     <div class="col-xs-4 body-column"><%= e.Position.PositionName %></div>
+  //     </div>
+  //   `
+  // compiled({ 'employees': employees });
+  console.log(compiled({ 'employees': employees }));
+  // let compiled = _.template(div);
+  // $('#employees-table').append(compiled);
+  // })
+  
 }
 
 /**
