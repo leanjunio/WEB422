@@ -88,19 +88,8 @@ let refreshEmployeeRows = (employees) => {
       })
     %>
     `
-  )
-  // var compiled = _.template('<% _.forEach(employees, function(employee) { %><li><%- employee.FirstName %></li><% }); %>');
-  // $.each(employees, (index, e) => {
-  //   let div = 
-  //   `
-      
-  //   `
-  // compiled({ 'employees': employees });
-  // console.log(compiled({ 'employees': employees }));
-  // let compiled = _.template(div);
+  );
   $('#employees-table').append(compiled({ 'employees': employees }));
-  // })
-  
 }
 
 /**
