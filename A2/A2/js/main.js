@@ -107,9 +107,9 @@ let refreshEmployeeRows = (employees) => {
  * @returns {array} A filtered version of the employeesModel array
  */
 let getFilteredEmployeesModel = (filterString) => {
-  let filteredArr = employeesModel.filter(employee => {
-    return employee.FirstName.includes(filterString) || employee.LastName.includes(filterString) || employee.Position.PositionName.includes(filterString)
-  });
+
+  // filters employeesModel based on FirstName LastName and PositionName
+  let filteredArr = employeesModel.filter(employee => employee.FirstName.includes(filterString) || employee.LastName.includes(filterString) || employee.Position.PositionName.includes(filterString));
   return filteredArr;
 }
 
