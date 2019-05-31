@@ -110,7 +110,11 @@ let getFilteredEmployeesModel = (filterString) => {
 
   // filters employeesModel based on FirstName LastName and PositionName
   let filteredArr = employeesModel.filter(employee => employee.FirstName.includes(filterString) || employee.LastName.includes(filterString) || employee.Position.PositionName.includes(filterString));
-  return filteredArr;
+  
+  if (filteredArr.length == 0)
+    return null;
+  else
+    return filteredArr;
 }
 
 /**
