@@ -11,12 +11,19 @@ $(document).ready(() => {
     let filteredEmployees = getFilteredEmployeesModel(employeeSearchBarVal);
     refreshEmployeeRows(filteredEmployees);
   });
-  let employee = $('.body-row');
-  employee.click((e) => { 
-    console.log(`clicked`)
-    e.preventDefault();
-    getEmployeeModelById(e.attr('data-id'));
+
+  // $('#employees-table > div').click((e) => console.log(e));
+  $('div.body-row').click(e => {
+    e.stopPropagation();
+    alert('Child div clicked');
   });
+  // let employee = $('div#employees-table > div.row.body-row');
+  // employee.click((e) => { 
+  //   e.stopPropagation();
+  //   console.log(`clicked`)
+  //   // e.preventDefault();
+  //   getEmployeeModelById(e.attr('data-id'));
+  // });
 });
   
 /**
