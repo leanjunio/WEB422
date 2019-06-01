@@ -6,24 +6,12 @@ let employeesModel = []
 $(document).ready(() => {
   initializeEmployeesModel();
   let employeeSearchBar = $('#employee-search');
+
   employeeSearchBar.keyup(() => {
-    let employeeSearchBarVal = $('#employee-search').val();
+    let employeeSearchBarVal = employeeSearchBar.val();
     let filteredEmployees = getFilteredEmployeesModel(employeeSearchBarVal);
     refreshEmployeeRows(filteredEmployees);
   });
-
-  // $('#employees-table > div').click((e) => console.log(e));
-  $('div.body-row').click(e => {
-    e.stopPropagation();
-    alert('Child div clicked');
-  });
-  // let employee = $('div#employees-table > div.row.body-row');
-  // employee.click((e) => { 
-  //   e.stopPropagation();
-  //   console.log(`clicked`)
-  //   // e.preventDefault();
-  //   getEmployeeModelById(e.attr('data-id'));
-  // });
 });
   
 /**
@@ -63,9 +51,9 @@ let initializeEmployeesModel = () => {
  * @param {string} message  The message that will appear within the modal
  */
 let showGenericModal = (title, message) => {
-  $('.modal-title').val(title);
-  $('.modal-body').val(message);
-  // TODO: Show the modal
+  $('.modal-title').html(`<b>${title}</b>`);
+  $('.modal-body').html(message);
+  $('#genericModal').modal('show');
 }
 
 /**
@@ -94,7 +82,7 @@ let refreshEmployeeRows = (employees) => {
     <%
       _.forEach(employees, (employee) => {
         %>
-          <div class="row body-row" data-id="<%= employee._id %>">
+          <div class="row body-row" data-id="<%= employee._id %>" onclick="employeeHandler(this)">
             <div class="col-xs-4 body-column"><%= employee.FirstName %></div>
             <div class="col-xs-4 body-column"><%= employee.LastName %></div>
             <div class="col-xs-4 body-column"><%= employee.Position.PositionName %></div>
@@ -136,5 +124,20 @@ let getFilteredEmployeesModel = (filterString) => {
  * @param {string} id The id pertaining to one employee
  */
 let getEmployeeModelById = (id) => {
-  return getFilteredEmployeesModel(id);
+  let employee = employeesModel.filter(employee => employee._id === id);
+  return employee[0];
+}
+
+let employeeHandler = (element) => {
+  let id = $(element).attr('data-id');
+  let employeeFromId = getEmployeeModelById(id);
+
+  // Define lodash template
+  let compiled = _.template(
+  `
+    <strong>Address:</strong> <%= employee.AddressStreet %> <%= employee.AddressCity %>, <%= employee.AddressState %> <%= employee.AddressZip %><br>
+    <strong>Phone Number:</strong> <%= employee.PhoneNum %> ext: <%= employee.Extension %><br>
+    <strong>Hire Date:</strong> <%= hireDate %>
+  `);
+  showGenericModal(`${employeeFromId.FirstName} ${employeeFromId.LastName}`, compiled({ 'employee': employeeFromId, 'hireDate': moment(employeeFromId.HireDate).format('LL') }));
 }
