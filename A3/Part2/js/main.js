@@ -16,6 +16,7 @@ $(document).ready(() => {
     return initializeProjects();
   })
   .then(() => {
+    console.log(`Reached here`);
     // TODO: 
     // - Use knockout to apply the bindings (applybindings) to the document using the "viewModel" (defined at the top of our file)
     // - Use jQuery to select all "select" elements with class "multiple" and invoke the following method
@@ -50,7 +51,8 @@ let initializeTeams = () => {
   return new Promise((resolve, reject => {
     let data = $.ajax(`https://teams-api-lean.herokuapp.com/teams-raw`)
     .done(data => {
-      // TODO: Set value of 'teams' property to the data returned from the AJAX call and resolve
+      ko.mapping.fromJS(data, viewModel.teams);
+      resolve();
     })
     .fail(err => reject(`Error loading the team data.`))
   }))
@@ -65,7 +67,7 @@ let initializeEmployees = () => {
   return new Promise((resolve, reject) => {
     let data = $.ajax(`https://teams-api-lean.herokuapp.com/employees`)
     .done(data => {
-      // TODO: Set value of 'employees' property to the data returned from the AJAX call and resolve
+      
     })
     .fail(err => reject(`Error loading the employee data`));
   })
