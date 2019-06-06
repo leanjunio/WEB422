@@ -5,6 +5,26 @@ let viewModel = {
 }
 
 /**
+ * Invokes the initialize methods and applies the knockout bindings
+ */
+$(document).ready(() => {
+  initializeTeams()
+  .then(() => {
+    return initializeEmployees();
+  })
+  .then(() => {
+    return initializeProjects();
+  })
+  .then(() => {
+    // TODO: 
+    // - Use knockout to apply the bindings (applybindings) to the document using the "viewModel" (defined at the top of our file)
+    // - Use jQuery to select all "select" elements with class "multiple" and invoke the following method
+    // - Use jQuery to select all "select" elements with class "single" and invoke the following method: .multipleSelect({ single: true, filter: true });
+  })
+  .catch(err => showGenericModal('Error', err))
+})
+
+/**
  * Displays the genericModal with the proper contents updated.
  * 
  * This function does the following:
