@@ -1,6 +1,4 @@
 {
-  "record": [
-    {
       "id": "1",
       "full_name": "Loria Stamper",
       "medication": "Ceftriaxone Sodium",
@@ -60,5 +58,3 @@
       "medication": "Dextrose",
       "email": "gmabson9@trellian.com"
     }
-  ]
-}

@@ -1,0 +1,20 @@
+{
+  "name": "A3",
+  "homepage": "https://github.com/leanjunio/WEB422",
+  "authors": [
+    "Lean Junio <leanjunio@live.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "^3.5.0"
+  }
+}
