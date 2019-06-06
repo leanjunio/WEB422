@@ -27,7 +27,11 @@ let showGenericModal = (title, message) => {
  * @returns a promise relative to **https://teams-api-lean.herokuapp.com/teams-raw**
  */
 let initializeTeams = () => {
-  let data = $.ajax(`https://teams-api-lean.herokuapp.com/teams-raw`)
-    .done(data => console.log(data))
-    .fail(err => console.err(err));
+  return new Promise((resolve, reject => {
+    let data = $.ajax(`https://teams-api-lean.herokuapp.com/teams-raw`)
+      .done(data => {
+        // TODO: Set value of 'teams' property to the data returned from the AJAX call
+      })
+      .fail(err => reject(`Error loading the team data.`))
+  }))
 }
