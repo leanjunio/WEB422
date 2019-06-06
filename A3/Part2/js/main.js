@@ -36,6 +36,11 @@ let initializeTeams = () => {
   }))
 }
 
+/**
+ * Responsible for populating the observable *employees* property with data
+ * 
+ * @returns a promise relative to **https://teams-api-lean.herokuapp.com/employees**
+ */
 let initializeEmployees = () => {
   return new Promise((resolve, reject) => {
     let data = $.ajax(`https://teams-api-lean.herokuapp.com/employees`)
@@ -43,5 +48,20 @@ let initializeEmployees = () => {
       // TODO: Set value of 'employees' property to the data returned from the AJAX call and resolve
     })
     .fail(err => reject(`Error loading the employee data`));
+  })
+}
+
+/**
+ * Responsible for populating the observable *projects* property with data
+ * 
+ * @returns a promise relative to **https://teams-api-lean.herokuapp.com/projects**
+ */
+let initializeProjects = () => {
+  return new Promise((resolve, reject) => {
+    let data = $.ajax(`https://teams-api-lean.herokuapp.com/projects`)
+    .done(data => {
+      // TODO: Set value of 'Projects' property to the data returned from the AJAX call and resolve
+    })
+    .fail(err => reject(`Error loading the 'project' data`));
   })
 }
