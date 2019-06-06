@@ -29,9 +29,19 @@ let showGenericModal = (title, message) => {
 let initializeTeams = () => {
   return new Promise((resolve, reject => {
     let data = $.ajax(`https://teams-api-lean.herokuapp.com/teams-raw`)
-      .done(data => {
-        // TODO: Set value of 'teams' property to the data returned from the AJAX call
-      })
-      .fail(err => reject(`Error loading the team data.`))
+    .done(data => {
+      // TODO: Set value of 'teams' property to the data returned from the AJAX call and resolve
+    })
+    .fail(err => reject(`Error loading the team data.`))
   }))
+}
+
+let initializeEmployees = () => {
+  return new Promise((resolve, reject) => {
+    let data = $.ajax(`https://teams-api-lean.herokuapp.com/employees`)
+    .done(data => {
+      // TODO: Set value of 'employees' property to the data returned from the AJAX call and resolve
+    })
+    .fail(err => reject(`Error loading the employee data`));
+  })
 }
