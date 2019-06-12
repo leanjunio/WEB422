@@ -48,14 +48,14 @@ let showGenericModal = (title, message) => {
  * @returns a promise relative to **https://teams-api-lean.herokuapp.com/teams-raw**
  */
 let initializeTeams = () => {
-  return new Promise((resolve, reject => {
+  return new Promise((resolve, reject) => {
     let data = $.ajax(`https://teams-api-lean.herokuapp.com/teams-raw`)
     .done(data => {
       ko.mapping.fromJS(data, viewModel.teams);
       resolve();
     })
     .fail(err => reject(`Error loading the team data.`))
-  }))
+  });
 }
 
 /**
