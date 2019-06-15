@@ -1,7 +1,7 @@
 let viewModel = {
-  teams: [],
-  employees: [],
-  projects: []
+  teams: ko.observableArray(),
+  employees: ko.observableArray(),
+  projects: ko.observableArray()
 }
 
 /**
@@ -9,20 +9,16 @@ let viewModel = {
  */
 $(document).ready(() => {
   initializeTeams()
-  .then(() => {
-    return initializeEmployees();
-  })
-  .then(() => {
-    return initializeProjects();
-  })
-  .then(() => {
-    console.log(`Reached here`);
-    // TODO: 
-    // - Use knockout to apply the bindings (applybindings) to the document using the "viewModel" (defined at the top of our file)
-    // - Use jQuery to select all "select" elements with class "multiple" and invoke the following method
-    // - Use jQuery to select all "select" elements with class "single" and invoke the following method: .multipleSelect({ single: true, filter: true });
-  })
-  .catch(err => showGenericModal('Error', err))
+    .then(() => initializeEmployees())
+    .then(() => initializeProjects())
+    .then(() => {
+      console.log(`REACHED`)
+      // TODO: 
+      // - Use knockout to apply the bindings (applybindings) to the document using the "viewModel" (defined at the top of our file)
+      // - Use jQuery to select all "select" elements with class "multiple" and invoke the following method
+      // - Use jQuery to select all "select" elements with class "single" and invoke the following method: .multipleSelect({ single: true, filter: true });
+    })
+    .catch(err => showGenericModal('Error', err))
 })
 
 /**
@@ -49,12 +45,13 @@ let showGenericModal = (title, message) => {
  */
 let initializeTeams = () => {
   return new Promise((resolve, reject) => {
-    let data = $.ajax(`https://teams-api-lean.herokuapp.com/teams-raw`)
-    .done(data => {
-      ko.mapping.fromJS(data, viewModel.teams);
-      resolve();
-    })
-    .fail(err => reject(`Error loading the team data.`))
+    $.ajax(`https://teams-api-lean.herokuapp.com/teams-raw`)
+      .done(data => {
+        console.log(data);
+        viewModel.teams = ko.mapping.fromJS(data);
+        resolve(data);
+      })
+      .fail(err => reject(`Error loading the team data`))
   });
 }
 
@@ -65,12 +62,14 @@ let initializeTeams = () => {
  */
 let initializeEmployees = () => {
   return new Promise((resolve, reject) => {
-    let data = $.ajax(`https://teams-api-lean.herokuapp.com/employees`)
-    .done(data => {
-      
-    })
-    .fail(err => reject(`Error loading the employee data`));
-  })
+    $.ajax(`https://teams-api-lean.herokuapp.com/employees`)
+      .done(data => {
+        console.log(data);
+        viewModel.employees = ko.mapping.fromJS(data);
+        resolve(data)
+      })
+      .fail(err => reject(`Error loading the employee data`))
+  });
 }
 
 /**
@@ -80,10 +79,12 @@ let initializeEmployees = () => {
  */
 let initializeProjects = () => {
   return new Promise((resolve, reject) => {
-    let data = $.ajax(`https://teams-api-lean.herokuapp.com/projects`)
-    .done(data => {
-      // TODO: Set value of 'Projects' property to the data returned from the AJAX call and resolve
-    })
-    .fail(err => reject(`Error loading the 'project' data`));
-  })
+    $.ajax(`https://teams-api-lean.herokuapp.com/projects`)
+      .done(data => {
+        console.log(data);
+        viewModel.projects = ko.mapping.fromJS(data);
+        resolve(data)
+      })
+      .fail(err => reject(`Error loading the project data`))
+  });
 }
