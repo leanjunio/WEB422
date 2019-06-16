@@ -12,13 +12,8 @@ $(document).ready(() => {
     .then(() => initializeEmployees())
     .then(() => initializeProjects())
     .then(() => {
-      console.log(`REACHED`)
-      // TODO: 
-      // - Use knockout to apply the bindings (applybindings) to the document using the "viewModel" (defined at the top of our file)
       ko.applyBindings(viewModel);
-      // - Use jQuery to select all "select" elements with class "multiple" and invoke the following method
       $('.multiple').multipleSelect({ filter: true })
-      // - Use jQuery to select all "select" elements with class "single" and invoke the following method: .multipleSelect({ single: true, filter: true });
       $('.single').multipleSelect({ single: true, filter: true });
     })
     .catch(err => showGenericModal('Error', err))
@@ -90,4 +85,23 @@ let initializeProjects = () => {
       })
       .fail(err => reject(`Error loading the project data`))
   });
+}
+
+/**
+ * NOTE: Using the => does not point to the correct scope
+ */
+function saveTeam() {
+  var self = this;
+  console.log(self)
+  $.ajax({
+    url: `https://teams-api-lean.herokuapp.com/team/${self._id}`,
+    type: 'PUT',
+    data: JSON.stringify({
+      Projects: self.Projects(),
+      Employees: self.Employees(),
+      TeamLead: self.TeamLead()
+    })
+  })
+  .done(() => showGenericModal(`Success`, `${self.TeamName()} Updated Succesfully`))
+  .fail(() => showGenericModal(`Error`, `Error updating the team information.`))
 }
