@@ -15,8 +15,11 @@ $(document).ready(() => {
       console.log(`REACHED`)
       // TODO: 
       // - Use knockout to apply the bindings (applybindings) to the document using the "viewModel" (defined at the top of our file)
+      ko.applyBindings(viewModel);
       // - Use jQuery to select all "select" elements with class "multiple" and invoke the following method
+      $('.multiple').multipleSelect({ filter: true })
       // - Use jQuery to select all "select" elements with class "single" and invoke the following method: .multipleSelect({ single: true, filter: true });
+      $('.single').multipleSelect({ single: true, filter: true });
     })
     .catch(err => showGenericModal('Error', err))
 })
