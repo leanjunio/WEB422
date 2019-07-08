@@ -40,9 +40,7 @@ class App extends Component {
                     </tbody>
                   </table>
                 </div>
-                <a href="/projects" className="btn btn-primary form-control">
-                  View All Project Data
-                </a>
+                <a href="/projects" className="btn btn-primary form-control">View All Project Data</a>
               </div>
             </div>
           </div>
@@ -78,9 +76,7 @@ class App extends Component {
                     </tbody>
                   </table>
                 </div>
-                <a href="/teams" className="btn btn-primary form-control">
-                  View All Team Data
-                </a>
+                <a href="/teams" className="btn btn-primary form-control">View All Team Data</a>
               </div>
             </div>
           </div>
@@ -116,9 +112,7 @@ class App extends Component {
                     </tbody>
                   </table>
                 </div>
-                <a href="/employees" className="btn btn-primary form-control">
-                  View All Employee Data
-                </a>
+                <a href="/employees" className="btn btn-primary form-control">View All Employee Data</a>
               </div>
             </div>
           </div>
