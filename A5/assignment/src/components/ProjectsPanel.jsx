@@ -12,6 +12,8 @@ export default class ProjectsPanel extends Component {
 	componentDidMount() {
 		axios.get('https://teams-api-lean.herokuapp.com/projects')
 		.then(res => this.setState({ projects: res.data }))
+
+		const projects = this.state.projects.map((item, key) => <tr key={item._id}><td>{item.ProjectName}</td><td></td></tr>)
 	}
 	render() {
 		return (
@@ -23,6 +25,7 @@ export default class ProjectsPanel extends Component {
 					<div className="table-responsive overview-table">
 						<table className="table table-striped table-bordered">
 							<tbody>
+								
 								<tr>
 									<td>Project 1</td>
 									<td>Active # Days</td>
