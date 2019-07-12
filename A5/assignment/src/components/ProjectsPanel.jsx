@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 import axios from 'axios'
 
 export default class ProjectsPanel extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			projects: []
+			projects: [],
 		}
 	}
 
 	componentDidMount() {
 		axios.get('https://teams-api-lean.herokuapp.com/projects')
-		.then(res => this.setState({ projects: res.data }))
-
-		const projects = this.state.projects.map((item, key) => <tr key={item._id}><td>{item.ProjectName}</td><td></td></tr>)
+			.then(res => this.setState({ projects: res.data}))
 	}
 	render() {
 		return (
@@ -25,27 +24,12 @@ export default class ProjectsPanel extends Component {
 					<div className="table-responsive overview-table">
 						<table className="table table-striped table-bordered">
 							<tbody>
-								
-								<tr>
-									<td>Project 1</td>
-									<td>Active # Days</td>
-								</tr>
-								<tr>
-									<td>Project 2</td>
-									<td>Active # Days</td>
-								</tr>
-								<tr>
-									<td>Project 3</td>
-									<td>Active # Days</td>
-								</tr>
-								<tr>
-									<td>Project 4</td>
-									<td>Active # Days</td>
-								</tr>
-								<tr>
-									<td>Project 5</td>
-									<td>Active # Days</td>
-								</tr>
+								{this.state.projects.map(project => (
+									<tr key={project._id}>
+										<td>{project.ProjectName}</td>
+										<td>{this.getActiveDays(project.ProjectStartDate)}</td>
+									</tr>
+								))}								
 							</tbody>
 						</table>
 					</div>
@@ -53,5 +37,9 @@ export default class ProjectsPanel extends Component {
 				</div>
 			</div>
 		)
+	}
+	getActiveDays(startDate) {
+		let currentDate = moment();
+		return currentDate.diff(moment(startDate), 'days')
 	}
 }
