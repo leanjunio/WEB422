@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Navbar from './Navbar'
 import SideBar from './SideBar'
 import ProjectsPanel from './ProjectsPanel';
+import TeamsPanel from './TeamsPanel';
 
 const MainContainer = () => {
   return (
@@ -17,40 +18,7 @@ const MainContainer = () => {
                 <ProjectsPanel />
               </div>
               <div className="col-md-4">
-                <div className="panel panel-default">
-                  <div className="panel-heading">
-                    <h3 className="panel-title">Teams</h3>
-                  </div>
-                  <div className="panel-body">
-                    <div className="table-responsive overview-table">
-                      <table className="table table-striped table-bordered">
-                        <tbody>
-                          <tr>
-                            <td>Team 1</td>
-                            <td># Employees</td>
-                          </tr>
-                          <tr>
-                            <td>Team 2</td>
-                            <td># Employees</td>
-                          </tr>
-                          <tr>
-                            <td>Team 3</td>
-                            <td># Employees</td>
-                          </tr>
-                          <tr>
-                            <td>Team 4</td>
-                            <td># Employees</td>
-                          </tr>
-                          <tr>
-                            <td>Team 5</td>
-                            <td># Employees</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <a href="/teams" className="btn btn-primary form-control">View All Team Data</a>
-                  </div>
-                </div>
+                <TeamsPanel />
               </div>
               <div className="col-md-4">
                 <div className="panel panel-default">
