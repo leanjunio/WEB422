@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import SideBar from './SideBar'
 import ProjectsPanel from './ProjectsPanel';
 import TeamsPanel from './TeamsPanel';
+import EmployeesPanel from './EmployeesPanel';
 
 const MainContainer = () => {
   return (
@@ -21,40 +22,7 @@ const MainContainer = () => {
                 <TeamsPanel />
               </div>
               <div className="col-md-4">
-                <div className="panel panel-default">
-                  <div className="panel-heading">
-                    <h3 className="panel-title">Employees</h3>
-                  </div>
-                  <div className="panel-body">
-                    <div className="table-responsive overview-table">
-                      <table className="table table-striped table-bordered">
-                        <tbody>
-                          <tr>
-                            <td>Employee 1</td>
-                            <td>Position</td>
-                          </tr>
-                          <tr>
-                            <td>Employee 2</td>
-                            <td>Position</td>
-                          </tr>
-                          <tr>
-                            <td>Employee 3</td>
-                            <td>Position</td>
-                          </tr>
-                          <tr>
-                            <td>Employee 4</td>
-                            <td>Position</td>
-                          </tr>
-                          <tr>
-                            <td>Employee 5</td>
-                            <td>Position</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <a href="/employees" className="btn btn-primary form-control">View All Employee Data</a>
-                  </div>
-                </div>
+                <EmployeesPanel />
               </div>
             </div>
           </div>
