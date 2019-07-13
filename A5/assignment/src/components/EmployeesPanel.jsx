@@ -5,14 +5,12 @@ export default class EmployeesPanel extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      employees: [{
-        position: {}
-      }]
+      employees: []
     }
   }
   componentDidMount() {
     axios.get('https://teams-api-lean.herokuapp.com/employees')
-      .then(res => this.setState({ employees: res.data}))
+      .then(res => this.setState({ employees: res.data }))
   }
   render() {
     return (
@@ -27,7 +25,7 @@ export default class EmployeesPanel extends Component {
                 {this.state.employees.map(employee => (
                   <tr key={employee._id}>
                     <td>{employee.FirstName + " " + employee.LastName}</td>
-                    <td>{employee.Position._id}</td>
+                    <td>{employee.Position.PositionName}</td>
                   </tr>
                 ))}
               </tbody>
