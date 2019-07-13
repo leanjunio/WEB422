@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import moment from "moment";
+import Moment from "moment";
 import axios from "axios";
 
 export default class TeamsPanel extends Component {

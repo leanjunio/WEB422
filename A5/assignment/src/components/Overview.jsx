@@ -7,7 +7,7 @@ import EmployeesPanel from "./EmployeesPanel";
 export default class Overview extends Component {
   render() {
     return (
-      <MainContainer>
+      <MainContainer sidebar="Overview">
         <h1 className="page-header">Overview</h1>
         <div className="row">
           <div className="col-md-4">
