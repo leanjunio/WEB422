@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { Component } from "react";
 import axios from "axios";
 import MainContainer from "./MainContainer";
