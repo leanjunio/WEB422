@@ -1,17 +1,18 @@
-import React, { Component } from 'react'
-import moment from 'moment'
-import axios from 'axios'
+import React, { Component } from "react";
+import moment from "moment";
+import axios from "axios";
 
 export default class TeamsPanel extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       teams: []
-    }
+    };
   }
   componentDidMount() {
-    axios.get('https://teams-api-lean.herokuapp.com/teams')
-      .then(res => this.setState({ teams: res.data}))
+    axios
+      .get("https://teams-api-lean.herokuapp.com/teams")
+      .then(res => this.setState({ teams: res.data }));
   }
   render() {
     return (
@@ -32,9 +33,11 @@ export default class TeamsPanel extends Component {
               </tbody>
             </table>
           </div>
-          <a href="/teams" className="btn btn-primary form-control">View All Team Data</a>
+          <a href="/teams" className="btn btn-primary form-control">
+            View All Team Data
+          </a>
         </div>
       </div>
-    )
+    );
   }
 }

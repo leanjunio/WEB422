@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import MainContainer from "./components/MainContainer";
+import Overview from "./components/Overview";
 
 class App extends Component {
   render() {
-    return (
-      <MainContainer />
-    );
+    return <Overview />;
   }
 }
 

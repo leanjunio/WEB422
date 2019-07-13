@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from "react";
+import axios from "axios";
 
 export default class EmployeesPanel extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       employees: []
-    }
+    };
   }
   componentDidMount() {
-    axios.get('https://teams-api-lean.herokuapp.com/employees')
-      .then(res => this.setState({ employees: res.data }))
+    axios
+      .get("https://teams-api-lean.herokuapp.com/employees")
+      .then(res => this.setState({ employees: res.data }));
   }
   render() {
     return (
@@ -31,9 +32,11 @@ export default class EmployeesPanel extends Component {
               </tbody>
             </table>
           </div>
-          <a href="/teams" className="btn btn-primary form-control">View All Team Data</a>
+          <a href="/teams" className="btn btn-primary form-control">
+            View All Team Data
+          </a>
         </div>
       </div>
-    )
+    );
   }
 }
