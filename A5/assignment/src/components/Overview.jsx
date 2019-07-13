@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import MainContainer from "./MainContainer";
+import ProjectsPanel from "./ProjectsPanel";
+import TeamsPanel from "./TeamsPanel";
+import EmployeesPanel from "./EmployeesPanel";
 
 export default class Overview extends Component {
   render() {
