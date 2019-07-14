@@ -6,18 +6,16 @@ import Teams from "./components/Teams";
 import Employees from "./components/Employees";
 import NotFound from "./components/NotFound";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/" render={Overview} />
-        <Route path="/projects" render={Projects} />
-        <Route path="/employees" render={Employees} />
-        <Route path="/Teams" render={Teams} />
-        <Route render={NotFound} />
+        <Route exact path="/" component={Overview} />
+        <Route path="/projects" component={Projects} />
+        <Route path="/employees" component={Employees} />
+        <Route path="/Teams" component={Teams} />
+        <Route component={NotFound} />
       </Switch>
     );
   }
 }
-
-export default App;

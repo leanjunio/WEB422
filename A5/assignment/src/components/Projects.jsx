@@ -21,7 +21,7 @@ export default class Projects extends Component {
       <MainContainer sidebar="Projects">
         <h1 className="page-header">Projects</h1>
         <div className="row">
-          <div className="container">
+          <div className="container-fluid">
             <table className="table table-striped table-bordered">
               <tbody>
                 {this.state.projects.map(project => (

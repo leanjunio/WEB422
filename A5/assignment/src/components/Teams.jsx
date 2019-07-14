@@ -19,7 +19,7 @@ export default class Teams extends Component {
       <MainContainer sidebar="Teams">
         <h1 className="page-header">Teams</h1>
         <div className="row">
-          <div className="container">
+          <div className="container-fluid">
             <table className="table table-striped table-bordered">
               <tbody>
                 {this.state.teams.map(team => (

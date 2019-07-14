@@ -21,7 +21,7 @@ export default class Employees extends Component {
       <MainContainer sidebar="Employees">
         <h1 className="page-header">Employees</h1>
         <div className="row">
-          <div className="container">
+          <div className="container-fluid">
             <table className="table table-striped table-bordered">
               <tbody>
                 {this.state.employees.map(employee => (
