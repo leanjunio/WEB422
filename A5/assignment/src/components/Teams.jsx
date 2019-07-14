@@ -22,17 +22,23 @@ export default class Teams extends Component {
           <div className="container-fluid">
             <table className="table table-striped table-bordered">
               <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Projects</th>
+                  <th># of Employees</th>
+                  <th>TeamLead</th>
+                </tr>
                 {this.state.teams.map(team => (
                   <tr key={team._id}>
                     <td>{team.TeamName}</td>
                     <td>
                       <ul>
                         {team.Projects.map(project => (
-                          <li>{project.ProjectName}</li>
+                          <li key={project._id}>{project.ProjectName}</li>
                         ))}
                       </ul>
                     </td>
-                    <td>{team.Employees.length}</td>
+                    <td>{`${team.Employees.length} employees`}</td>
                     <td>{`${team.TeamLead.FirstName} ${team.TeamLead.LastName}`}</td>
                   </tr>
                 ))}

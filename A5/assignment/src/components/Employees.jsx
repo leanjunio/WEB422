@@ -24,6 +24,13 @@ export default class Employees extends Component {
           <div className="container-fluid">
             <table className="table table-striped table-bordered">
               <tbody>
+                <tr>
+                  <th>Name & Position</th>
+                  <th>Address</th>
+                  <th>Phone Num.</th>
+                  <th>Hire Date</th>
+                  <th>Salary Bonus</th>
+                </tr>
                 {this.state.employees.map(employee => (
                   <tr key={employee._id}>
                     <td>{`${employee.FirstName} ${employee.LastName} - ${employee.Position.PositionName}`}</td>

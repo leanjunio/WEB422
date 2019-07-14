@@ -24,6 +24,12 @@ export default class Projects extends Component {
           <div className="container-fluid">
             <table className="table table-striped table-bordered">
               <tbody>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                </tr>
                 {this.state.projects.map(project => (
                   <tr key={project._id}>
                     <td>{project.ProjectName}</td>
