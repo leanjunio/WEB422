@@ -9,20 +9,20 @@ export default class SideBar extends Component {
       <div className="col-sm-3 col-md-2  sidebar">
         <ul className="nav nav-sidebar">
           <li className="active">
-            <a href="/">
+            <Link to="/">
               Overview <span className="sr-only">(current)</span>
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className="nav nav-sidebar">
           <li className={this.props.highlight === "Projects" ? "active" : ""}>
-            <a href="/projects">Projects</a>
+            <Link to="/projects">Projects</Link>
           </li>
           <li>
-            <a href="/teams">Teams</a>
+            <Link to="/teams">Teams</Link>
           </li>
           <li>
-            <a href="/employees">Employees</a>
+            <Link to="/employees">Employees</Link>
           </li>
         </ul>
       </div>
