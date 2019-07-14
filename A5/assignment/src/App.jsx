@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Switch, Route } from "react-router";
 import Overview from "./components/Overview";
 import Projects from "./components/Projects";
 import Teams from "./components/Teams";
@@ -13,6 +13,7 @@ class App extends Component {
         <Route exact path="/" render={Overview} />
         <Route path="/projects" render={Projects} />
         <Route path="/employees" render={Employees} />
+        <Route path="/Teams" render={Teams} />
         <Route render={NotFound} />
       </Switch>
     );

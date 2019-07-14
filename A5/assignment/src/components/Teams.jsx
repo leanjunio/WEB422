@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import MainContainer from "./MainContainer";
-import moment from "moment";
 
 export default class Teams extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       teams: []
     };

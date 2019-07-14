@@ -16,7 +16,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "prettier"
+        "prettier",
+        "es2015"
     ],
     "rules": {
         "prettier/prettier": ["error"]

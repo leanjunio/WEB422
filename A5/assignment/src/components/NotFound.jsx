@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default NotFound = () => {
+function NotFound() {
   return (
     <div>
       <h1>Not Found</h1>
       <p>Page Not Found</p>
     </div>
   );
-};
+}
+
+export default NotFound;

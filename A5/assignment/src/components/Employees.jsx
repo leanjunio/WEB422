@@ -6,6 +6,7 @@ import moment from "moment";
 
 export default class Employees extends Component {
   constructor(props) {
+    super(props)
     this.state = {
       employees: []
     };
