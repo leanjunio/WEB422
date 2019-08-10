@@ -13,12 +13,13 @@ import {
   MatListModule
 } from "@angular/material";
 import { AppComponent } from "./app.component";
+import { NewsComponent } from './news/news.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NewsComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,  
     HttpClientModule,
     MatButtonModule,
     MatMenuModule,
